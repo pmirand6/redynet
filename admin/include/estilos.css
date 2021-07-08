@@ -1,0 +1,29 @@
+.nu:hover {   TEXT-DECORATION: underline  }
+.nu {  TEXT-DECORATION: none }
+.hd:hover {  TEXT-DECORATION: underline }
+.hd {   TEXT-DECORATION: none }
+
+input {	font-family: Verdana, Arial; font-size:7pt }
+select {font-family: Verdana, Arial; font-size:7pt }
+textarea {	font-family: Verdana, Arial; font-size:7pt }
+.titulo {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11pt; color: #336699; font-weight: bold;}
+.textoformulariogde {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; color: #666666}
+.itemformulario { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; color: #8A8A8A ; font-weight: bold}
+.itemformulario2 { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 7pt; color: #888888 ; font-weight: bold}
+.error {	font-family: Verdana, Arial, Helvetica, sans-serif;	font-size: 8pt;	color: #FF0000;	font-weight: bold}
+.textolistado { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 7pt; color: #666666}
+.textoformulario { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; color: #666666}
+.textoformulariochico { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 7pt; color: #666666}
+.linklistado { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 7pt; color: #666666; text-decoration: underline}
+.e { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 7pt; color: #006699}
+.path {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; color: #7D7D7D; text-decoration:none}
+.homeTitCampana {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 9pt; font-weight: bold; color: #006699; text-decoration: none}
+.pathsubseccion {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: bold; color: #999999; text-decoration: none}
+.fechasHome {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 7pt; color: #999999}
+.navegacion {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 7pt; color: #666666; text-decoration: none}
+.navegacionCampanas {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 7pt; color: #999999; text-decoration: none}
+.linkmenu { font-family: Arial, Helvetica, sans-serif; font-size: 7pt; color: #006699 ; font-weight: bold}
+.navegacionUsuario:hover {text-decoration: underline}
+.navegacionUsuario { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 7pt; color: #006699; text-decoration: none}
+.breadcrumb:hover {text-decoration: underline}
+.breadcrumb { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; color: #006699; text-decoration: none}
