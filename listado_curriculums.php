@@ -159,8 +159,8 @@ if(isset($_POST["bus_herramientas"])){
 
 
 $cons='SELECT distinct c.* FROM curriculums c '.$inner_clause.' where c.estado < 2 '.$where_clause;
-$r1=mysql_query($cons,$conn);
-$r2=mysql_query($cons,$conn);
+$r1=mysqli_query($conn, $cons);
+$r2=mysqli_query($conn, $cons);
 
 ?>
 
@@ -171,7 +171,7 @@ $r2=mysql_query($cons,$conn);
 		<link rel='stylesheet' href='include/estilos.css' type='text/css'>
 		<SCRIPT LANGUAGE='JAVASCRIPT'>
 		function verify(){
-			msg = '¿Está seguro que desea eliminar?.';
+			msg = 'ï¿½Estï¿½ seguro que desea eliminar?.';
 			return confirm(msg);    
 		}
 		</SCRIPT>
@@ -367,7 +367,7 @@ Hasta: <select name="bus_edadh">
 						<td valign='bottom' bgcolor='#FFFFFF'><img src='images/tit_listados.gif' width='560' height='19'></td>
 					</tr>
 				</table>
-				<?if($rs=mysql_fetch_array($r1)){?>
+				<?if($rs=mysqli_fetch_array($r1)){?>
 						<table width='560' border='0' cellspacing='0' cellpadding='1'>
 							<tr> 
 								<td bgcolor='#999999'> 
@@ -407,7 +407,7 @@ Hasta: <select name="bus_edadh">
 		</td>
 		</tr>
 		<?$pijama=1;
-		while($rs=mysql_fetch_array($r2)){ 
+		while($rs=mysqli_fetch_array($r2)){
 		$pijama=$pijama*(-1)?> 
 			<tr height='20'>	<td style='padding: 5px' class='textolistado' height='20' bgcolor='<?if($pijama<1){?>#ffffff<?}else{?>#f7f7f7<?}?>'> 
 					<a href='modificar_curriculums.php?codigo=<?echo strtolower($rs['codigo'])?>' class='textolistado'><?echo $rs['codigo']?></a>

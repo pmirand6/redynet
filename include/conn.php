@@ -1,14 +1,15 @@
 <?ob_start ('ob_gzhandler'); // compresion del output buffer
-session_cache_expire(600); // duración de la sesión
+session_cache_expire(600); // duraciï¿½n de la sesiï¿½n
 
 session_start();
 
 function Conectarse(){
- 	if (!($conn=mysql_connect('localhost','ftpias','jaPKRQpHJFmaXD4j'))){
+	//TODO CAMBIAR STRING DE CONEXION
+ 	if (!($conn=mysqli_connect('database','root','jaPKRQpHJFmaXD4j'))){
 		echo 'Error conectando a la base de datos.';
 		exit();
 	}
-	if (!mysql_select_db('ftpias',$conn)){
+	if (!mysqli_select_db($conn, 'ftpias')){
 		echo 'Error seleccionando la base de datos.';
 		exit();
 	}

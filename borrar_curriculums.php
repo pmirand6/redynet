@@ -3,7 +3,7 @@ conectarse();
 $codigo = $_GET['codigo']; 
 
 $cons = 'update curriculums set estado = 2 where codigo = '.$codigo;
-mysql_query($cons,$conn) or die(mysql_error());
+mysqli_query($conn, $cons) or die(mysqli_error($conn));
 
 header ('location: listado_curriculums.php');
 ?>

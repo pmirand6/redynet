@@ -11,7 +11,7 @@ conectarse();
 <link rel="stylesheet" href="include/estilos.css" type="text/css">
 <SCRIPT LANGUAGE=JAVASCRIPT>
 function verify(){
-    msg = "¿Está seguro que desea eliminar?.\n";
+    msg = "ï¿½Estï¿½ seguro que desea eliminar?.\n";
     return confirm(msg);    
 }
 </SCRIPT>
@@ -36,7 +36,7 @@ function validar(){  //validacion del formulario
 		{error+="\n* E-mail debe ser completado"};
 
 	if (error!=""){ 
-	 alert("El formulario está incompleto o contiene errores:\t\t\t\n"+error); 
+	 alert("El formulario estï¿½ incompleto o contiene errores:\t\t\t\n"+error); 
 	}else{ 
 	 d.submit(); 
 	}; 
@@ -83,9 +83,9 @@ if(isset($_GET["codigo"]))$codigo = $_GET["codigo"];
 
 if ($codigo != 0) {
 	$cons = "SELECT * FROM administradores WHERE codigo = $codigo";
-	$r = mysql_query($cons, $conn);
+	$r = mysqli_query($conn, $cons);
 	
-	if($rs = mysql_fetch_array($r)){ 
+	if($rs = mysqli_fetch_array($r)){
 	
 		$apellido = $rs["apellido"]; 
 		$nombre = $rs["nombre"]; 
@@ -166,7 +166,7 @@ if ($codigo != 0) {
 </tr>
 </table>
 <br>
-  
+ï¿½ 
 
 
 </form>

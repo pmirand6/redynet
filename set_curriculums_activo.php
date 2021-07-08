@@ -10,7 +10,7 @@ $pasara = 0;
 if($activo==0)$pasara = 1;
 
 $cons = "update curriculums set estado = $pasara where codigo = $codigo";
-mysql_query($cons,$conn) or die(mysql_error());
+mysqli_query($conn, $cons) or die(mysqli_error($conn));
 
 header ('location: listado_curriculums.php');
 ?>

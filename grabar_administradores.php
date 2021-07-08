@@ -18,7 +18,7 @@ if ($codigo<>0){
 else{
 	$cons = "Insert into administradores (apellido, nombre, usuario, clave, estado) values ('$apellido','$nombre','$usuario','$clave',$estado)";
 }
-mysql_query($cons,$conn) or die(mysql_error());
+mysqli_query($conn, $cons) or die(mysqli_error($conn));
 
 header ("location: listado_administradores.php?");
 ?>

@@ -6,8 +6,8 @@ require_once('include/seguridad.php');
 $where_clause = " WHERE 1=1 "; 
 
 $cons = "SELECT a.* FROM administradores a $where_clause";
-$r1 = mysql_query($cons, $conn);
-$r2 = mysql_query($cons, $conn);
+$r1 = mysqli_query($conn, $cons);
+$r2 = mysqli_query($conn, $cons);
 ?>
 
 <html>
@@ -17,7 +17,7 @@ $r2 = mysql_query($cons, $conn);
 <link rel="stylesheet" href="include/estilos.css" type="text/css">
 <SCRIPT LANGUAGE=JAVASCRIPT>
 function verify(){
-    msg = "¿Está seguro que desea eliminar?.\n";
+    msg = "ï¿½Estï¿½ seguro que desea eliminar?.\n";
     return confirm(msg);    
 }
 </SCRIPT>
@@ -46,7 +46,7 @@ function verify(){
 <td valign="bottom" bgcolor="#FFFFFF"><img src="images/tit_listados.gif" width="560" height="19">
 </td></tr>
 </table>
-<?php if($rs = mysql_fetch_array($r1)){?>
+<?php if($rs = mysqli_fetch_array($r1)){?>
 <table width="560" border="0" cellspacing="0" cellpadding="1">
 <tr> 
 <td bgcolor="#999999"> 
@@ -72,7 +72,7 @@ function verify(){
 	$pijama = 1;
 	
 
-	while($rs = mysql_fetch_array($r2)){ 
+	while($rs = mysqli_fetch_array($r2)){
 		$pijama = $pijama * (-1)
 ?> 
 <tr height="20" > 

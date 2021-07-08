@@ -14,10 +14,10 @@ if(isset($_POST['clave']))$clave = $_POST['clave'];
 
 if(isset($_POST['aceptar'])){
 	$sqllog = "select codigo, permiso from administradores where usuario = '$usuario' and clave = '$clave' and estado = 1";
-	$rlog = mysql_query($sqllog, $conn);
-	if($rslog = mysql_fetch_array($rlog)){ 
-		session_register('backcode');
-		session_register('backperm');
+	$rlog = mysqli_query($conn, $sqllog);
+	if($rslog = mysqli_fetch_array($rlog)){
+        $_SESSION['backcode'] = 'backcode';
+        $_SESSION['backperm'] = 'backperm';
 		$_SESSION['backcode'] = $rslog['codigo'];
 		$_SESSION['backperm'] = $rslog['permiso'];
 		header('location: home.php');

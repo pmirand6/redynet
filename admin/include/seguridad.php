@@ -6,7 +6,7 @@ function Seguridad_Chequear($pNivel) {
 	$pAux = false;
 	if (($_SESSION["backperm"] & $pNivel)== $pNivel) $pAux = true;
 	return($pAux);
-};
+}
 
 //Se fija si tiene un nivel de seguridad si no lo tiene redirecciona
 function Seguridad_Redirigir($pNivel, $pRedirect){

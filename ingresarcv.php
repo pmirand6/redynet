@@ -53,8 +53,8 @@ if(isset($_SESSION['usrcode']))$codigo = $_SESSION['usrcode'];
 
 if ($codigo != 0) {
 	$cons = 'select * from curriculums where codigo = '.$codigo;
-	$r = mysql_query($cons, $conn);
-	if($rs = mysql_fetch_array($r)){
+	$r = mysqli_query($conn, $cons);
+	if($rs = mysqli_fetch_array($r)){
 		$apellido=$rs['apellido'];
 		$nombre=$rs['nombre'];
 		$tipo_doc=$rs['tipo_doc'];
@@ -109,7 +109,7 @@ if ($codigo != 0) {
 <meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>
 <script language='JavaScript'>
 function verify(){
-    msg = '¿Está seguro que desea eliminar?.';
+    msg = 'ï¿½Estï¿½ seguro que desea eliminar?.';
     return confirm(msg);    
 }
 
@@ -147,7 +147,7 @@ function validar(){  //validacion del formulario
 			if (d.clave.value=='') 
 			{error+='* clave debe ser completado\n'};
 			if (error!=''){ 
-	 alert('El formulario está incompleto o contiene errores:\n\n'+error); 
+	 alert('El formulario estï¿½ incompleto o contiene errores:\n\n'+error); 
 	}else{ 
 	 d.submit(); 
 	}; 
@@ -206,7 +206,7 @@ function validar(){  //validacion del formulario
 					</td>
 				</tr><tr> 
 					<td width='25%' bgcolor='#F5FCFF' class='itemformulario'>
-						Nº Documento:
+						Nï¿½ Documento:
 					</td>
 					<td width='75%' bgcolor='#EFEFEF'> 
 						<input type='TEXT' name='documento' value='<?php echo $documento; ?>' size='50' maxlength='45'>
@@ -406,7 +406,7 @@ function validar(){  //validacion del formulario
 					</td>
 				</tr><tr> 
 					<td width='25%' bgcolor='#F5FCFF' class='itemformulario'>
-						Año:
+						Aï¿½o:
 					</td>
 					<td width='75%' bgcolor='#EFEFEF'> 
 						<input type='TEXT' name='ano' value='<?php echo $ano; ?>' size='50' maxlength='45'>
@@ -485,8 +485,8 @@ function validar(){  //validacion del formulario
 
 				<?$j = 0;
 				$cons = 'select * from terciarios_x_curriculum where curriculum = '.$codigo;
-				$r = mysql_query($cons, $conn);
-				while(($rs = mysql_fetch_array($r)) || $j<2){
+				$r = mysqli_query($conn, $cons);
+				while(($rs = mysqli_fetch_array($r)) || $j<2){
 					if($rs){
 						$tcestado=$rs['tcestado'];
 						$titulo=$rs['titulo'];
@@ -544,21 +544,21 @@ function validar(){  //validacion del formulario
 					</td>
 				</tr><tr> 
 					<td width='25%' bgcolor='#F5FCFF' class='itemformulario'>
-						Año y Mes de Inicio:
+						Aï¿½o y Mes de Inicio:
 					</td>
 					<td width='75%' bgcolor='#EFEFEF'> 
 						<input type='TEXT' name='inicio<?=$j?>' value='<?php echo $inicio; ?>' size='50' maxlength='45'>
 					</td>
 				</tr><tr> 
 					<td width='25%' bgcolor='#F5FCFF' class='itemformulario'>
-						Año y Mes de Fin:
+						Aï¿½o y Mes de Fin:
 					</td>
 					<td width='75%' bgcolor='#EFEFEF'> 
 						<input type='TEXT' name='final<?=$j?>' value='<?php echo $final; ?>' size='50' maxlength='45'>
 					</td>
 				</tr><tr> 
 					<td width='25%' bgcolor='#F5FCFF' class='itemformulario'>
-						Institución o Universidad de estudio:
+						Instituciï¿½n o Universidad de estudio:
 					</td>
 					<td width='75%' bgcolor='#EFEFEF'> 
 						<input type='TEXT' name='institucion<?=$j?>' value='<?php echo $institucion; ?>' size='50' maxlength='45'>
@@ -603,7 +603,7 @@ function validar(){  //validacion del formulario
 					</td>
 				</tr><tr> 
 					<td width='25%' bgcolor='#F5FCFF' class='itemformulario'>
-						Nº de Matricula - Otorgada por:
+						Nï¿½ de Matricula - Otorgada por:
 					</td>
 					<td width='75%' bgcolor='#EFEFEF'> 
 						<input type='TEXT' name='numero_matricula<?=$j?>' value='<?php echo $numero_matricula; ?>' size='50' maxlength='50'>
@@ -611,7 +611,7 @@ function validar(){  //validacion del formulario
 				</tr>
 				<tr> 
 					<td width='25%' bgcolor='#F5FCFF' class='itemformulario'>
-						Lugar de Matriculación:
+						Lugar de Matriculaciï¿½n:
 					</td>
 					<td width='75%' bgcolor='#EFEFEF'> 
 						<input type='TEXT' name='lugar_mat<?=$j?>' value='<?php echo $lugar_mat; ?>' size='50' maxlength='100'>
@@ -640,8 +640,8 @@ function validar(){  //validacion del formulario
 
 				<?$j = 0;
 				$cons = 'select * from especializaciones_x_curriculum where curriculum = '.$codigo;
-				$r = mysql_query($cons, $conn);
-				while(($rs = mysql_fetch_array($r)) || $j<2){
+				$r = mysqli_query($conn, $cons);
+				while(($rs = mysqli_fetch_array($r)) || $j<2){
 					if($rs){
 						$ecestado=$rs['ecestado'];
 						$ectitulo=$rs['titulo'];
@@ -679,21 +679,21 @@ function validar(){  //validacion del formulario
 					</td>
 				</tr><tr> 
 					<td width='25%' bgcolor='#F5FCFF' class='itemformulario'>
-						Año de inicio Carrera:
+						Aï¿½o de inicio Carrera:
 					</td>
 					<td width='75%' bgcolor='#EFEFEF'> 
 						<input type='TEXT' name='ecinicio<?=$j?>' value='<?php echo $ecinicio; ?>' size='50' maxlength='45'>
 					</td>
 				</tr><tr> 
 					<td width='25%' bgcolor='#F5FCFF' class='itemformulario'>
-						Año final:
+						Aï¿½o final:
 					</td>
 					<td width='75%' bgcolor='#EFEFEF'> 
 						<input type='TEXT' name='ecfinal<?=$j?>' value='<?php echo $ecfinal; ?>' size='50' maxlength='45'>
 					</td>
 				</tr><tr> 
 					<td width='25%' bgcolor='#F5FCFF' class='itemformulario'>
-						Institución o Universidad de estudio:
+						Instituciï¿½n o Universidad de estudio:
 					</td>
 					<td width='75%' bgcolor='#EFEFEF'> 
 						<input type='TEXT' name='ecinstitucion<?=$j?>' value='<?php echo $ecinstitucion; ?>' size='50' maxlength='45'>
@@ -715,8 +715,8 @@ function validar(){  //validacion del formulario
 
 				<?$j = 0;
 				$cons = 'select * from antecedentes_x_curriculum where curriculum = '.$codigo;
-				$r = mysql_query($cons, $conn);
-				while(($rs = mysql_fetch_array($r)) || $j<5){
+				$r = mysqli_query($conn, $cons);
+				while(($rs = mysqli_fetch_array($r)) || $j<5){
 					if($rs){
 						$curriculum=$rs['curriculum'];
 						$empresa=$rs['empresa'];
@@ -776,14 +776,14 @@ function validar(){  //validacion del formulario
 					</td>
 				</tr><tr> 
 					<td width='25%' bgcolor='#F5FCFF' class='itemformulario'>
-						Mes y Año de ingreso:
+						Mes y Aï¿½o de ingreso:
 					</td>
 					<td width='75%' bgcolor='#EFEFEF'> 
 						<input type='TEXT' name='ingreso<?=$j?>' value='<?php echo $ingreso; ?>' size='50' maxlength='45'>
 					</td>
 				</tr><tr> 
 					<td width='25%' bgcolor='#F5FCFF' class='itemformulario'>
-						Mes y Año de egreso:
+						Mes y Aï¿½o de egreso:
 					</td>
 					<td width='75%' bgcolor='#EFEFEF'> 
 						<input type='TEXT' name='egreso<?=$j?>' value='<?php echo $egreso; ?>' size='50' maxlength='45'>
@@ -858,7 +858,7 @@ function validar(){  //validacion del formulario
 				<TABLE WIDTH='560' CELLPADDING='2' CELLSPACING='1' BORDER='0' BGCOLOR='#999999'>
 				<tr> 
 					<td colspan='<?=count($vecn)+1?>' align='center' bgcolor='#F5FCFF' class='itemformulario'>
-						Computación:
+						Computaciï¿½n:
 					</td>
 				</tr>
 					<tr>
