@@ -109,7 +109,7 @@ if ($codigo != 0) {
 <meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>
 <script language='JavaScript'>
 function verify(){
-    msg = '�Est� seguro que desea eliminar?.';
+    msg = '¿Está seguro que desea eliminar?.';
     return confirm(msg);    
 }
 
@@ -147,7 +147,7 @@ function validar(){  //validacion del formulario
 			if (d.clave.value=='') 
 			{error+='* clave debe ser completado\n'};
 			if (error!=''){ 
-	 alert('El formulario est� incompleto o contiene errores:\n\n'+error); 
+	 alert('El formulario está incompleto o contiene errores:\n\n'+error);
 	}else{ 
 	 d.submit(); 
 	}; 
@@ -206,7 +206,7 @@ function validar(){  //validacion del formulario
 					</td>
 				</tr><tr> 
 					<td width='25%' bgcolor='#F5FCFF' class='itemformulario'>
-						N� Documento:
+						Nro Documento:
 					</td>
 					<td width='75%' bgcolor='#EFEFEF'> 
 						<input type='TEXT' name='documento' value='<?php echo $documento; ?>' size='50' maxlength='45'>
@@ -406,7 +406,7 @@ function validar(){  //validacion del formulario
 					</td>
 				</tr><tr> 
 					<td width='25%' bgcolor='#F5FCFF' class='itemformulario'>
-						A�o:
+						Año:
 					</td>
 					<td width='75%' bgcolor='#EFEFEF'> 
 						<input type='TEXT' name='ano' value='<?php echo $ano; ?>' size='50' maxlength='45'>
@@ -544,21 +544,21 @@ function validar(){  //validacion del formulario
 					</td>
 				</tr><tr> 
 					<td width='25%' bgcolor='#F5FCFF' class='itemformulario'>
-						A�o y Mes de Inicio:
+						Año y Mes de Inicio:
 					</td>
 					<td width='75%' bgcolor='#EFEFEF'> 
 						<input type='TEXT' name='inicio<?=$j?>' value='<?php echo $inicio; ?>' size='50' maxlength='45'>
 					</td>
 				</tr><tr> 
 					<td width='25%' bgcolor='#F5FCFF' class='itemformulario'>
-						A�o y Mes de Fin:
+						Año y Mes de Fin:
 					</td>
 					<td width='75%' bgcolor='#EFEFEF'> 
 						<input type='TEXT' name='final<?=$j?>' value='<?php echo $final; ?>' size='50' maxlength='45'>
 					</td>
 				</tr><tr> 
 					<td width='25%' bgcolor='#F5FCFF' class='itemformulario'>
-						Instituci�n o Universidad de estudio:
+						Institución o Universidad de estudio:
 					</td>
 					<td width='75%' bgcolor='#EFEFEF'> 
 						<input type='TEXT' name='institucion<?=$j?>' value='<?php echo $institucion; ?>' size='50' maxlength='45'>
@@ -603,7 +603,7 @@ function validar(){  //validacion del formulario
 					</td>
 				</tr><tr> 
 					<td width='25%' bgcolor='#F5FCFF' class='itemformulario'>
-						N� de Matricula - Otorgada por:
+						Nro de Matricula - Otorgada por:
 					</td>
 					<td width='75%' bgcolor='#EFEFEF'> 
 						<input type='TEXT' name='numero_matricula<?=$j?>' value='<?php echo $numero_matricula; ?>' size='50' maxlength='50'>
@@ -611,7 +611,7 @@ function validar(){  //validacion del formulario
 				</tr>
 				<tr> 
 					<td width='25%' bgcolor='#F5FCFF' class='itemformulario'>
-						Lugar de Matriculaci�n:
+						Lugar de Matriculación:
 					</td>
 					<td width='75%' bgcolor='#EFEFEF'> 
 						<input type='TEXT' name='lugar_mat<?=$j?>' value='<?php echo $lugar_mat; ?>' size='50' maxlength='100'>
@@ -679,21 +679,21 @@ function validar(){  //validacion del formulario
 					</td>
 				</tr><tr> 
 					<td width='25%' bgcolor='#F5FCFF' class='itemformulario'>
-						A�o de inicio Carrera:
+						Año de inicio Carrera:
 					</td>
 					<td width='75%' bgcolor='#EFEFEF'> 
 						<input type='TEXT' name='ecinicio<?=$j?>' value='<?php echo $ecinicio; ?>' size='50' maxlength='45'>
 					</td>
 				</tr><tr> 
 					<td width='25%' bgcolor='#F5FCFF' class='itemformulario'>
-						A�o final:
+						Año final:
 					</td>
 					<td width='75%' bgcolor='#EFEFEF'> 
 						<input type='TEXT' name='ecfinal<?=$j?>' value='<?php echo $ecfinal; ?>' size='50' maxlength='45'>
 					</td>
 				</tr><tr> 
 					<td width='25%' bgcolor='#F5FCFF' class='itemformulario'>
-						Instituci�n o Universidad de estudio:
+						Institución o Universidad de estudio:
 					</td>
 					<td width='75%' bgcolor='#EFEFEF'> 
 						<input type='TEXT' name='ecinstitucion<?=$j?>' value='<?php echo $ecinstitucion; ?>' size='50' maxlength='45'>
@@ -776,14 +776,14 @@ function validar(){  //validacion del formulario
 					</td>
 				</tr><tr> 
 					<td width='25%' bgcolor='#F5FCFF' class='itemformulario'>
-						Mes y A�o de ingreso:
+						Mes y Año de ingreso:
 					</td>
 					<td width='75%' bgcolor='#EFEFEF'> 
 						<input type='TEXT' name='ingreso<?=$j?>' value='<?php echo $ingreso; ?>' size='50' maxlength='45'>
 					</td>
 				</tr><tr> 
 					<td width='25%' bgcolor='#F5FCFF' class='itemformulario'>
-						Mes y A�o de egreso:
+						Mes y Año de egreso:
 					</td>
 					<td width='75%' bgcolor='#EFEFEF'> 
 						<input type='TEXT' name='egreso<?=$j?>' value='<?php echo $egreso; ?>' size='50' maxlength='45'>
@@ -858,7 +858,7 @@ function validar(){  //validacion del formulario
 				<TABLE WIDTH='560' CELLPADDING='2' CELLSPACING='1' BORDER='0' BGCOLOR='#999999'>
 				<tr> 
 					<td colspan='<?=count($vecn)+1?>' align='center' bgcolor='#F5FCFF' class='itemformulario'>
-						Computaci�n:
+						Computación:
 					</td>
 				</tr>
 					<tr>
