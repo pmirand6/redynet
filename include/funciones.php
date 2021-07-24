@@ -26,6 +26,7 @@ function QueNivel($fcurriculum, $fherramienta, $fidioma, $fconn)
 
 //Traigo todos los idiomas
 $sqls = "select codigo, nombre from idiomas i where i.estado = 1 order by i.orden";
+mysqli_set_charset($conn,"utf8");
 $rs = mysqli_query($conn, $sqls);
 $pos = 0;
 while ($rss = mysqli_fetch_array($rs)) {

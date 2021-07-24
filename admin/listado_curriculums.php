@@ -151,6 +151,26 @@ $cons = 'SELECT distinct c.* FROM curriculums c ' . $inner_clause . ' where c.es
 $r1 = mysqli_query($conn, $cons);
 $r2 = mysqli_query($conn, $cons);
 
+if (isset($_POST["exportar"]) && $_POST['exportar'] == 1) {
+    $filename = "exportacion" . date('Ymd') . ".xlsx";
+
+    header("Content-Disposition: attachment; filename=\"$filename\"");
+    header("Content-Type: text/csv");
+
+    $out = fopen("php://output", 'w');
+
+    $flag = false;
+    foreach($r1 as $row) {
+        if(!$flag) {
+            fputcsv($out, array_keys($row), ',', '"');
+            $flag = true;
+        }
+        fputcsv($out, array_values($row), ',', '"');
+    }
+    fclose($out);
+    exit;
+}
+
 ?>
 
 <html>

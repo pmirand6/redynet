@@ -13,6 +13,7 @@ function Conectarse(){
 		echo 'Error seleccionando la base de datos.';
 		exit();
 	}
+	mysqli_set_charset($conn,"utf8");
 	return $conn;
 }
 $conn=Conectarse();
