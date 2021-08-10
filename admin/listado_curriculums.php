@@ -1,6 +1,14 @@
-<? require_once('include/conn.php');
+<?
+require '../vendor/autoload.php';
+require_once('include/conn.php');
 require_once('include/combo.php');
 require_once('include/funciones.php');
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use Classes\Excel\DownloadExcel;
+
+
 
 conectarse();
 
@@ -152,22 +160,9 @@ $r1 = mysqli_query($conn, $cons);
 $r2 = mysqli_query($conn, $cons);
 
 if (isset($_POST["exportar"]) && $_POST['exportar'] == 1) {
-    $filename = "exportacion" . date('Ymd') . ".xlsx";
-
-    header("Content-Disposition: attachment; filename=\"$filename\"");
-    header("Content-Type: text/csv");
-
-    $out = fopen("php://output", 'w');
-
-    $flag = false;
-    foreach($r1 as $row) {
-        if(!$flag) {
-            fputcsv($out, array_keys($row), ',', '"');
-            $flag = true;
-        }
-        fputcsv($out, array_values($row), ',', '"');
-    }
-    fclose($out);
+    $filename = "exportacion " . date('Y-m-d') . ' ' . date('Hms') . ".xlsx";
+    $excelExport = new DownloadExcel();
+    $excelExport->createExcel($r1,$filename);
     exit;
 }
 
