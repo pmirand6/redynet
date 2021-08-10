@@ -42,29 +42,35 @@ class ColumnDimension extends Dimension
     }
 
     /**
-     * Get column index as string eg: 'A'.
+     * Get ColumnIndex.
+     *
+     * @return string
      */
-    public function getColumnIndex(): string
+    public function getColumnIndex()
     {
         return $this->columnIndex;
     }
 
     /**
-     * Set column index as string eg: 'A'.
+     * Set ColumnIndex.
      *
-     * @return $this
+     * @param string $pValue
+     *
+     * @return ColumnDimension
      */
-    public function setColumnIndex(string $index)
+    public function setColumnIndex($pValue)
     {
-        $this->columnIndex = $index;
+        $this->columnIndex = $pValue;
 
         return $this;
     }
 
     /**
      * Get Width.
+     *
+     * @return float
      */
-    public function getWidth(): float
+    public function getWidth()
     {
         return $this->width;
     }
@@ -72,19 +78,23 @@ class ColumnDimension extends Dimension
     /**
      * Set Width.
      *
-     * @return $this
+     * @param float $pValue
+     *
+     * @return ColumnDimension
      */
-    public function setWidth(float $width)
+    public function setWidth($pValue)
     {
-        $this->width = $width;
+        $this->width = $pValue;
 
         return $this;
     }
 
     /**
      * Get Auto Size.
+     *
+     * @return bool
      */
-    public function getAutoSize(): bool
+    public function getAutoSize()
     {
         return $this->autoSize;
     }
@@ -92,11 +102,13 @@ class ColumnDimension extends Dimension
     /**
      * Set Auto Size.
      *
-     * @return $this
+     * @param bool $pValue
+     *
+     * @return ColumnDimension
      */
-    public function setAutoSize(bool $autosizeEnabled)
+    public function setAutoSize($pValue)
     {
-        $this->autoSize = $autosizeEnabled;
+        $this->autoSize = $pValue;
 
         return $this;
     }

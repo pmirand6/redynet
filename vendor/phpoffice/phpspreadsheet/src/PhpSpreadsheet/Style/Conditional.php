@@ -3,7 +3,6 @@
 namespace PhpOffice\PhpSpreadsheet\Style;
 
 use PhpOffice\PhpSpreadsheet\IComparable;
-use PhpOffice\PhpSpreadsheet\Style\ConditionalFormatting\ConditionalDataBar;
 
 class Conditional implements IComparable
 {
@@ -13,20 +12,6 @@ class Conditional implements IComparable
     const CONDITION_CONTAINSTEXT = 'containsText';
     const CONDITION_EXPRESSION = 'expression';
     const CONDITION_CONTAINSBLANKS = 'containsBlanks';
-    const CONDITION_NOTCONTAINSBLANKS = 'notContainsBlanks';
-    const CONDITION_DATABAR = 'dataBar';
-    const CONDITION_NOTCONTAINSTEXT = 'notContainsText';
-
-    private const CONDITION_TYPES = [
-        self::CONDITION_CELLIS,
-        self::CONDITION_CONTAINSBLANKS,
-        self::CONDITION_CONTAINSTEXT,
-        self::CONDITION_DATABAR,
-        self::CONDITION_EXPRESSION,
-        self::CONDITION_NONE,
-        self::CONDITION_NOTCONTAINSBLANKS,
-        self::CONDITION_NOTCONTAINSTEXT,
-    ];
 
     // Operator types
     const OPERATOR_NONE = '';
@@ -41,7 +26,6 @@ class Conditional implements IComparable
     const OPERATOR_CONTAINSTEXT = 'containsText';
     const OPERATOR_NOTCONTAINS = 'notContains';
     const OPERATOR_BETWEEN = 'between';
-    const OPERATOR_NOTBETWEEN = 'notBetween';
 
     /**
      * Condition type.
@@ -79,11 +63,6 @@ class Conditional implements IComparable
     private $condition = [];
 
     /**
-     * @var ConditionalDataBar
-     */
-    private $dataBar;
-
-    /**
      * Style.
      *
      * @var Style
@@ -114,7 +93,7 @@ class Conditional implements IComparable
      *
      * @param string $pValue Condition type, see self::CONDITION_*
      *
-     * @return $this
+     * @return Conditional
      */
     public function setConditionType($pValue)
     {
@@ -138,7 +117,7 @@ class Conditional implements IComparable
      *
      * @param string $pValue Conditional operator type, see self::OPERATOR_*
      *
-     * @return $this
+     * @return Conditional
      */
     public function setOperatorType($pValue)
     {
@@ -162,7 +141,7 @@ class Conditional implements IComparable
      *
      * @param string $value
      *
-     * @return $this
+     * @return Conditional
      */
     public function setText($value)
     {
@@ -186,7 +165,7 @@ class Conditional implements IComparable
      *
      * @param bool $value
      *
-     * @return $this
+     * @return Conditional
      */
     public function setStopIfTrue($value)
     {
@@ -208,9 +187,9 @@ class Conditional implements IComparable
     /**
      * Set Conditions.
      *
-     * @param bool|float|int|string|string[] $pValue Condition
+     * @param string[] $pValue Condition
      *
-     * @return $this
+     * @return Conditional
      */
     public function setConditions($pValue)
     {
@@ -227,7 +206,7 @@ class Conditional implements IComparable
      *
      * @param string $pValue Condition
      *
-     * @return $this
+     * @return Conditional
      */
     public function addCondition($pValue)
     {
@@ -251,33 +230,11 @@ class Conditional implements IComparable
      *
      * @param Style $pValue
      *
-     * @return $this
+     * @return Conditional
      */
-    public function setStyle(?Style $pValue = null)
+    public function setStyle(Style $pValue = null)
     {
         $this->style = $pValue;
-
-        return $this;
-    }
-
-    /**
-     * get DataBar.
-     *
-     * @return ConditionalDataBar | null
-     */
-    public function getDataBar()
-    {
-        return $this->dataBar;
-    }
-
-    /**
-     * set DataBar.
-     *
-     * @return $this
-     */
-    public function setDataBar(ConditionalDataBar $dataBar)
-    {
-        $this->dataBar = $dataBar;
 
         return $this;
     }
@@ -311,13 +268,5 @@ class Conditional implements IComparable
                 $this->$key = $value;
             }
         }
-    }
-
-    /**
-     * Verify if param is valid condition type.
-     */
-    public static function isValidConditionType(string $type): bool
-    {
-        return in_array($type, self::CONDITION_TYPES);
     }
 }

@@ -2,6 +2,8 @@
 
 namespace PhpOffice\PhpSpreadsheet\Style;
 
+use PhpOffice\PhpSpreadsheet\Exception as PhpSpreadsheetException;
+
 class Font extends Supervisor
 {
     // Underline types
@@ -14,56 +16,56 @@ class Font extends Supervisor
     /**
      * Font Name.
      *
-     * @var null|string
+     * @var string
      */
     protected $name = 'Calibri';
 
     /**
      * Font Size.
      *
-     * @var null|float
+     * @var float
      */
     protected $size = 11;
 
     /**
      * Bold.
      *
-     * @var null|bool
+     * @var bool
      */
     protected $bold = false;
 
     /**
      * Italic.
      *
-     * @var null|bool
+     * @var bool
      */
     protected $italic = false;
 
     /**
      * Superscript.
      *
-     * @var null|bool
+     * @var bool
      */
     protected $superscript = false;
 
     /**
      * Subscript.
      *
-     * @var null|bool
+     * @var bool
      */
     protected $subscript = false;
 
     /**
      * Underline.
      *
-     * @var null|string
+     * @var string
      */
     protected $underline = self::UNDERLINE_NONE;
 
     /**
      * Strikethrough.
      *
-     * @var null|bool
+     * @var bool
      */
     protected $strikethrough = false;
 
@@ -75,7 +77,7 @@ class Font extends Supervisor
     protected $color;
 
     /**
-     * @var null|int
+     * @var int
      */
     public $colorIndex;
 
@@ -157,7 +159,9 @@ class Font extends Supervisor
      *
      * @param array $pStyles Array containing style information
      *
-     * @return $this
+     * @throws PhpSpreadsheetException
+     *
+     * @return Font
      */
     public function applyFromArray(array $pStyles)
     {
@@ -199,7 +203,7 @@ class Font extends Supervisor
     /**
      * Get Name.
      *
-     * @return null|string
+     * @return string
      */
     public function getName()
     {
@@ -213,20 +217,20 @@ class Font extends Supervisor
     /**
      * Set Name.
      *
-     * @param string $fontname
+     * @param string $pValue
      *
-     * @return $this
+     * @return Font
      */
-    public function setName($fontname)
+    public function setName($pValue)
     {
-        if ($fontname == '') {
-            $fontname = 'Calibri';
+        if ($pValue == '') {
+            $pValue = 'Calibri';
         }
         if ($this->isSupervisor) {
-            $styleArray = $this->getStyleArray(['name' => $fontname]);
+            $styleArray = $this->getStyleArray(['name' => $pValue]);
             $this->getActiveSheet()->getStyle($this->getSelectedCells())->applyFromArray($styleArray);
         } else {
-            $this->name = $fontname;
+            $this->name = $pValue;
         }
 
         return $this;
@@ -235,7 +239,7 @@ class Font extends Supervisor
     /**
      * Get Size.
      *
-     * @return null|float
+     * @return float
      */
     public function getSize()
     {
@@ -249,27 +253,20 @@ class Font extends Supervisor
     /**
      * Set Size.
      *
-     * @param mixed $sizeInPoints A float representing the value of a positive measurement in points (1/72 of an inch)
+     * @param float $pValue
      *
-     * @return $this
+     * @return Font
      */
-    public function setSize($sizeInPoints)
+    public function setSize($pValue)
     {
-        if (is_string($sizeInPoints) || is_int($sizeInPoints)) {
-            $sizeInPoints = (float) $sizeInPoints; // $pValue = 0 if given string is not numeric
+        if ($pValue == '') {
+            $pValue = 10;
         }
-
-        // Size must be a positive floating point number
-        // ECMA-376-1:2016, part 1, chapter 18.4.11 sz (Font Size), p. 1536
-        if (!is_float($sizeInPoints) || !($sizeInPoints > 0)) {
-            $sizeInPoints = 10.0;
-        }
-
         if ($this->isSupervisor) {
-            $styleArray = $this->getStyleArray(['size' => $sizeInPoints]);
+            $styleArray = $this->getStyleArray(['size' => $pValue]);
             $this->getActiveSheet()->getStyle($this->getSelectedCells())->applyFromArray($styleArray);
         } else {
-            $this->size = $sizeInPoints;
+            $this->size = $pValue;
         }
 
         return $this;
@@ -278,7 +275,7 @@ class Font extends Supervisor
     /**
      * Get Bold.
      *
-     * @return null|bool
+     * @return bool
      */
     public function getBold()
     {
@@ -294,7 +291,7 @@ class Font extends Supervisor
      *
      * @param bool $pValue
      *
-     * @return $this
+     * @return Font
      */
     public function setBold($pValue)
     {
@@ -314,7 +311,7 @@ class Font extends Supervisor
     /**
      * Get Italic.
      *
-     * @return null|bool
+     * @return bool
      */
     public function getItalic()
     {
@@ -330,7 +327,7 @@ class Font extends Supervisor
      *
      * @param bool $pValue
      *
-     * @return $this
+     * @return Font
      */
     public function setItalic($pValue)
     {
@@ -350,7 +347,7 @@ class Font extends Supervisor
     /**
      * Get Superscript.
      *
-     * @return null|bool
+     * @return bool
      */
     public function getSuperscript()
     {
@@ -364,18 +361,21 @@ class Font extends Supervisor
     /**
      * Set Superscript.
      *
-     * @return $this
+     * @param bool $pValue
+     *
+     * @return Font
      */
-    public function setSuperscript(bool $pValue)
+    public function setSuperscript($pValue)
     {
+        if ($pValue == '') {
+            $pValue = false;
+        }
         if ($this->isSupervisor) {
             $styleArray = $this->getStyleArray(['superscript' => $pValue]);
             $this->getActiveSheet()->getStyle($this->getSelectedCells())->applyFromArray($styleArray);
         } else {
             $this->superscript = $pValue;
-            if ($this->superscript) {
-                $this->subscript = false;
-            }
+            $this->subscript = !$pValue;
         }
 
         return $this;
@@ -384,7 +384,7 @@ class Font extends Supervisor
     /**
      * Get Subscript.
      *
-     * @return null|bool
+     * @return bool
      */
     public function getSubscript()
     {
@@ -398,18 +398,21 @@ class Font extends Supervisor
     /**
      * Set Subscript.
      *
-     * @return $this
+     * @param bool $pValue
+     *
+     * @return Font
      */
-    public function setSubscript(bool $pValue)
+    public function setSubscript($pValue)
     {
+        if ($pValue == '') {
+            $pValue = false;
+        }
         if ($this->isSupervisor) {
             $styleArray = $this->getStyleArray(['subscript' => $pValue]);
             $this->getActiveSheet()->getStyle($this->getSelectedCells())->applyFromArray($styleArray);
         } else {
             $this->subscript = $pValue;
-            if ($this->subscript) {
-                $this->superscript = false;
-            }
+            $this->superscript = !$pValue;
         }
 
         return $this;
@@ -418,7 +421,7 @@ class Font extends Supervisor
     /**
      * Get Underline.
      *
-     * @return null|string
+     * @return string
      */
     public function getUnderline()
     {
@@ -436,7 +439,7 @@ class Font extends Supervisor
      *                                    If a boolean is passed, then TRUE equates to UNDERLINE_SINGLE,
      *                                        false equates to UNDERLINE_NONE
      *
-     * @return $this
+     * @return Font
      */
     public function setUnderline($pValue)
     {
@@ -458,7 +461,7 @@ class Font extends Supervisor
     /**
      * Get Strikethrough.
      *
-     * @return null|bool
+     * @return bool
      */
     public function getStrikethrough()
     {
@@ -474,7 +477,7 @@ class Font extends Supervisor
      *
      * @param bool $pValue
      *
-     * @return $this
+     * @return Font
      */
     public function setStrikethrough($pValue)
     {
@@ -505,7 +508,11 @@ class Font extends Supervisor
     /**
      * Set Color.
      *
-     * @return $this
+     * @param Color $pValue
+     *
+     * @throws PhpSpreadsheetException
+     *
+     * @return Font
      */
     public function setColor(Color $pValue)
     {
@@ -545,21 +552,5 @@ class Font extends Supervisor
             $this->color->getHashCode() .
             __CLASS__
         );
-    }
-
-    protected function exportArray1(): array
-    {
-        $exportedArray = [];
-        $this->exportArray2($exportedArray, 'bold', $this->getBold());
-        $this->exportArray2($exportedArray, 'color', $this->getColor());
-        $this->exportArray2($exportedArray, 'italic', $this->getItalic());
-        $this->exportArray2($exportedArray, 'name', $this->getName());
-        $this->exportArray2($exportedArray, 'size', $this->getSize());
-        $this->exportArray2($exportedArray, 'strikethrough', $this->getStrikethrough());
-        $this->exportArray2($exportedArray, 'subscript', $this->getSubscript());
-        $this->exportArray2($exportedArray, 'superscript', $this->getSuperscript());
-        $this->exportArray2($exportedArray, 'underline', $this->getUnderline());
-
-        return $exportedArray;
     }
 }

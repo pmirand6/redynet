@@ -4,7 +4,7 @@ namespace Complex;
 
 /**
  *
- * Autoloader for Complex Classes
+ * Autoloader for Complex classes
  *
  * @package Complex
  * @copyright  Copyright (c) 2014 Mark Baker (https://github.com/MarkBaker/PHPComplex)
